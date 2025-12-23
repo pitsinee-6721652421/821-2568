@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    @font-face {
+        font-family: 'kanit';
+        src: url(./Kanit/Kanit-Regular.ttf);
+    }
+
+    
+    body {
+        background-color: gray;
+        font-family: 'kanit', sans-serif;
+    }
+    #regiter-form{
+        color: white;
+        padding-left: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-right: 20px;
+        border: 1px solid black;
+    }
+    .from.control{
+        border: 2px solid black;
+        margin-bottom: 10px ;
+        
+    }
+</style>
+    <!--จะไม่แสดงหน้า index-->
+</head>
+<body>
+    
+    <h1 style="color: white;">Regiter Fromxxx</h1>
+
+        ชื่อ : <input type="text" name="name">
+        นามสกุล :<input type="text" name="surname"><br>
+        อายุ :<input type="number" name="age" min="0" max="150"><br>
+        เพศ : 
+        <input type="radio"  name="gender "value="male">ชาย
+        <input type="radio" name="gender" value="female">หญิง
+        งานอดิเรก:
+        <input type="checkbox" name="hoppy" value="raeding">อ่านหนังสือ
+        <input type="checkbox" name="hoppy" value="traveling">ท่องเที่ยว
+        <input type="checkbox"name="hoppy" value="sports">กีฬา
+        คำอธิบายตังเอง: <br>
+        <textarea name="descirption" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+
+
+</body>
+</html>
