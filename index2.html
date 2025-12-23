@@ -1,29 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .button {
-            background-color: blue;
-            color: white;
-            padding: 10px 20px;
-        }
-        .button:hover{
-            color: white;
-            padding: 10px 20px;
-        }
-        .button :active{
-            background-color: red;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Example Page</title>
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    
+    .list {
+      width: 200px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+
+    .list-item {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .list-item.active {
+      background-color: #3399ff;
+      color: white;
+    }
+
+    /* buttons */
+    .btn {
+      padding: 8px 14px;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 6px;
+    }
+
+    .btn-success {
+      background-color: green;
+    }
+
+    .btn-primary {
+      background-color: blue;
+    }
+
+    .btn-danger {
+      background-color: red;
+    }
+  </style>
 </head>
 <body>
-    <button class="button">Click Me! </button>
- 
-  
+
+  <!-- List -->
+  <div class="list">
+    <div class="list-item">Containing Content</div>
+    <div class="list-item active">Item Content</div>
+    <div class="list-item">Containing Content</div>
+    <div class="list-item">Item Content</div>
+  </div>
+
+  <!-- Buttons -->
+  <button class="btn btn-success">Click Me</button>
+  <button class="btn btn-primary">Delete</button>
+  <button class="btn btn-danger">Warning</button>
+
+</body>
+</html>
 
  
 </body>
