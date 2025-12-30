@@ -63,8 +63,7 @@ console.log("Height:",height)
 //let  score = 75 ;
 /**
  * 
-
-let  score = prompt
+ * 
 if (score >= 80){
     console.log(" เกรด A");
 }else if (score >= 70){
@@ -117,7 +116,7 @@ else{
  * for
  */
 let conter = 0
-while (conter <= 4){
+while (conter <= 5){
  conter+=1
  console.log("while",conter)
 }
