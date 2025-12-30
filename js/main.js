@@ -116,7 +116,7 @@ else{
  * for
  */
 let conter = 0
-while (conter <= 5){
+while (conter <= 4){
  conter+=1
  console.log("while",conter)
 }
