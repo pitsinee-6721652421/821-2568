@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!--
+ชื่อ <input 
+    id="fname"
+    class="input"
+    type="text" 
+    name="fname" 
+    value="John">
+นามสกุล <input 
+  id="lname"
+    class="input"
+    type="text" 
+    name="lname" 
+    value="Dom">
+  //  const fnameinput = document.getElementById("fname");
+    //console.log(fnameinput.value);
+   // const lnameInput = document.getElementById("lname");
+    //console.log(lnameInput.value);
+    // วน input ทุกช่องด้วย class
+    //const inputs = document.getElementsByClassName("input");
+   // for (let i = 0; i < inputs.length; i++) {
+     //   console.log(inputs[i].value);}
+ -->   
+
+
+ <!--
+งานอดิเรก <br>
+<input type="checkbox" name="hobby" value="Football"> Football
+<input type="checkbox" name="hobby" value="Basketball"> Basketball
+<input type="checkbox" name="hobby" value="Tennis"> Tennis
+
+<script>
+    let checkbox = document.querySelectorAll('input[name="hobby"]');
+    for (let i = 0; i < checkbox.length; i++) {
+        console.log(checkbox[i].value);
+    }
+</script>
+-->
+
+
+ <!--
+<button onclick="userClicked()">Submit</button>
+<div>dev clicked</div>
+<script>
+    function userClicked() {
+        console.log("user clicked the button");}
+    function devCleck(){
+         console.log("Dev clicked the div");
+    }    
+</script>
+-->
+เพศ <br>
+<input type="radio" name="gender" value="male" onchange="onchangeGender()"> ชาย
+<input type="radio" name="gender" value="female" onchange="onchangeGender()"> หญิง
+
+<script>
+    function onchangeGender() {
+        // เลือก radio ทั้งหมด
+        let genderInput = document.querySelectorAll('input[name="gender"]');
+        // เช็ตตัวไหนมี check อยู่ ให้เอา value มาแสดง
+        for (let i = 0; i < genderInput.length; i++) {
+            if (genderInput[i].checked) {
+                console.log("เพศที่เลือกคือ " + genderInput[i].value);
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>
