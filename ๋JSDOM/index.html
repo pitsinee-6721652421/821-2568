@@ -58,10 +58,11 @@
     }    
 </script>
 -->
+
+ <!--
 เพศ <br>
 <input type="radio" name="gender" value="male" onchange="onchangeGender()"> ชาย
 <input type="radio" name="gender" value="female" onchange="onchangeGender()"> หญิง
-
 <script>
     function onchangeGender() {
         // เลือก radio ทั้งหมด
@@ -74,6 +75,89 @@
         }
     }
 </script>
+-->
+
+
+<!--25/01/69-->
+<!--
+ชื่อ 
+<input type="text" name="Fname" onclick="onclickFname()">
+<script>
+    // onclick คือ user คลิกที่คีย์บอร์ด
+    // onkeyup คือ user ปล่อยปุ่มทีคีย์บอร์ด
+    // ondown คือ user กดคีบอร์ดค้าง
+    //function onclickFname(){
+      //  let fname = document.querySelector('input[name="Fname"]');
+        //console.log("fname:", fname.value);
+    //}
+</script>-->
+
+<!--
+<button 
+    onmouseover="onmouseoverFname()"
+    onmouseup="onmouseupFname()"
+    onmousedown="onmousedownFname()"
+>click me</button>
+
+<script>
+    function onmouseoverFname(){
+        console.log("mouse is over the button");
+    }
+    function onmouseupFname(){
+        console.log("mouse is up on the button");
+    }
+    function onmousedownFname(){
+        console.log("mouse down");
+    }
+</script>
+-->
+<!--
+<div id="hi">
+    Hi <span style="display: none;">A</span>
+        let hiDOM = document.getElementById("hi");
+    //hiDOM.innerText='hiDOM A'
+    hiDOM.innerHTML= 'hello <b>A</b>';
+    console.log(hiDOM.textContent);
+    console.log(hiDOM.innerText);
+    console.log(hiDOM.innerHTML);
+</script
+</div>>-->
+
+
+<h2>แบบฟอร์มเลือกความสนใจ</h2>
+<div id="content"></div>
+<input type="checkbox" name="interest" value="กีฬา"> กีฬา
+<input type="checkbox" name="interest" value="ดนตรี"> ดนตรี
+<input type="checkbox" name="interest" value="อ่านหนังสือ"> อ่านหนังสือ
+<br><br>
+
+<button onclick="SubmitInterest()">ส่งข้อมูล</button>
+
+<script>
+    function SubmitInterest(){
+        let checkbox = document.querySelectorAll('input[name="interest"]');
+        let contentHTML = "<ul>";
+
+        for (let i = 0; i < checkbox.length; i++){
+            if (checkbox[i].checked){
+                contentHTML += "<li>" + checkbox[i].value + "</li>";
+            }
+        }
+        //วางค่าที่ลือกกลับไปที่html
+        contentHTML += "</ul>";
+
+        //ใส่ html ที่สร้างขึ้นใหม่ลงในdiv
+        let contentDiv = document.getElementById("content");
+        contentDiv.innerHTML = contentHTML;
+    }
+</script>
+
+
+
+    
+
+
+
 
 
 </body>
