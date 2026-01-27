@@ -1,0 +1,33 @@
+docker run hello-word
+docker ps --all
+docker run busybox echo 'hello wored in docker'
+docker run busybox is
+docker run busybox ping google.com
+docker pull busybox
+docker creat busuboy ping google.com
+docker start CONTAINER ID
+docker rm
+docker system prune
+
+
+docker stop <container_id>
+docker start <container_id>
+
+docker run -it <image_name or container_id> bash
+
+docker exec  CONTAINER ID sh
+docker exec CONTAINER ID bash
+
+
+cat ขื่อไฟล์.html
+
+docker ps --all nginx
+
+
+
+docker run -p 80:80 nginx
+docker run -p 9000:80 nginx
+
+docker run -d -p 9100:80 nginx
+
+docker logs <CONTAINER >
