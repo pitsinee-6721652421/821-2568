@@ -31,3 +31,6 @@ docker run -p 9000:80 nginx
 docker run -d -p 9100:80 nginx
 
 docker logs <CONTAINER >
+
+docker-compose up -d
+docker-compose dowm
