@@ -15,7 +15,7 @@ const initDBConnection = async () => {
         host: 'localhost',
         user: 'root',
         password: 'root',
-        database: 'webdb',
+        database: 'weddb',
         port: 8821
     });
 }
@@ -45,6 +45,12 @@ app.post('/users', async (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.listen(port, async () => {
+    try {
+        await initDBConnection();
+        console.log("Database connected");
+
+    } catch (error) {
+        console.error("Database connection failed:", error);
+    }
 });
