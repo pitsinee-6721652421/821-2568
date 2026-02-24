@@ -1,60 +1,50 @@
-//17/02/69
-c/nst express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql2/promise');
 const app = express();
 const port = 8000;
+
 app.use(bodyParser.json());
+
 let users = []
 let counter = 1;
+let conn = null
 
-// path = GET /users
-app.get('/users', (req, res) => {
-    res.json(users);
-});
-
-// path = POST /user
-app.post('/user', (req, res) => {
-    let user = req.body;
-    user.id = counter;
-    counter += 1;
-    users.push(user);
-    res.json({
-        message: 'User added successfully',
-        user: user
+const initDBConnection = async () => {
+    conn = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'webdb',
+        port: 8821
     });
-});
-// path = PUT /user/:id  //แก้
-app.put('/user/:id', (req, res) => {
-    
-    let updatedUser = req.body;
-    let id = req.params.id;
-    //user จาก id ที่ส่งมา
-    let selectedIndex = users.findIndex(user => user.id == id);
-     if (updatedUser.name) {
-        users[selectedIndex].name = updatedUser.name    
-    }
-    if (updatedUser.age) {
-        users[selectedIndex].age = updatedUser.age
-    }
+}
 
-    //อัพเดทข้อมูล user
-    users[selectedIndex] = updatedUser
-
-    //เอาข้อมูลที่ update ส่ง response กลับไป
-    res.json({
-        message: 'User updated successfully',
-        data: {
-            user: updatedUser,
-            indexUpdated: selectedIndex
-        }
-    })
+//path = GET /users สำหรับด get ข้อมูล users ทั้งหมด
+app.get('/users', async (req, res) => {
+    const results = await conn.query('SELECT * FROM users')
+    res.json(results[0]);
 });
 
-app.delete("/user/:id", (req, res) => {
-    let selectedIndex = users.findIndex(users => users .id ==id);
-    delete users[selectedIndex];
-})
+//path = POST /users สำหรับเพิ่ม user ใหม่
+app.post('/users', async (req, res) => {
+    try {
+        let user = req.body;
+        const results = await conn.query('INSERT INTO users SET ?', user)
+        res.json({
+            message: 'User created successfully',
+            data: results[0]
+        })
+    } catch (error) {
+        console.error('Error creating user:', error);
+        res.status(500).json({
+            message: 'Error creating user',
+            error: error.message
+        });
+    }
+});
+
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
+    console.log(`Server is running on port ${port}`);
 });
