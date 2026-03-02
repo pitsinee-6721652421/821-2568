@@ -34,3 +34,7 @@ docker logs <CONTAINER >
 
 docker-compose up -d
 docker-compose dowm
+
+docker compose up -d
+
+npm i cors

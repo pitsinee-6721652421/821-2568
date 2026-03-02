@@ -1,110 +1,114 @@
-/* นำเข้าฟอนต์ Google Font (Sarabun สำหรับภาษาไทย) */
-@import url('https://fonts.googleapis.com');
-
+/* reset เบื้องต้น */
 * {
     box-sizing: border-box;
-    font-family: 'Sarabun', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+.message 
+{
+    background-color: beige;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.message.success
+{
+    background-color: #75da79;
+    color: white;
+    display: block;
+}
+
+.message.danger
+{
+    background-color: rgb(141, 20, 20);
+    color: white;
+    display: block;
+}
+
+/* จัดกึ่งกลางทั้งหน้า */
 body {
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
-
-.container {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
+    margin: 0;
+    padding: 0;
 }
 
+/* กล่องฟอร์มหลัก */
+.container {
+    width: 400px;
+    background-color: #faf2f2;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* หัวข้อใหญ่ */
 .header {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 25px;
-    color: #333;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-/* การจัดวางแถว */
+/* flex utility */
 .flex {
     display: flex;
     align-items: center;
 }
 
+/* ระยะห่างแต่ละ input */
 .form-input {
     margin-bottom: 15px;
 }
 
+/* หัวข้อหน้า input */
 .header-form {
-    width: 100px; /* กำหนดความกว้างหัวข้อให้เท่ากัน */
+    width: 80px;
     font-weight: bold;
-    color: #555;
 }
 
-/* ตกแต่งช่อง Input และ Textarea */
-input.form, textarea {
+/* input ทั่วไป */
+.form {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-input.form:focus, textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+/* gender section */
+.gender .flex div {
+    margin-right: 10px;
 }
 
+/* textarea */
 textarea {
     width: 100%;
     height: 80px;
-    margin-top: 5px;
-    resize: vertical;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
 }
 
-/* ตกแต่ง Radio และ Checkbox */
-.gender .flex div {
-    margin-right: 15px;
-    cursor: pointer;
-}
-
-.form-input div {
-    margin-top: 5px;
-}
-
-/* ตกแต่งปุ่ม */
+/* จัดปุ่มตรงกลาง */
 .center {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    text-align: center;
 }
 
+/* ปุ่ม */
 .button {
-    background-color: #007bff;
+    background-color: #4CAF50;
     color: white;
-    padding: 12px 40px;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    font-size: 16px;
 }
 
+/* hover effect */
 .button:hover {
-    background-color: #0056b3;
-}
-
-.button:active {
-    transform: scale(0.98);
+    background-color: #45a049;
 }

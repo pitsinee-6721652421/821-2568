@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
+const cors = require('cors'); 
+
 const app = express();
 const port = 8000;
 
+app.use(cors()); 
 app.use(bodyParser.json());
 
 let users = []
@@ -74,6 +77,8 @@ app.put('/users/:id', async (req, res) => {
     try {
         let id = req.params.id
         let updatedUser = req.body;
+        delete updatedUser.id;
+
         const results = await conn.query('UPDATE users SET ? WHERE id = ?', [updatedUser, id])
         if (results[0].affectedRows == 0) {
             throw { statusCode: 404, message: 'User not found' };
@@ -114,6 +119,17 @@ app.delete('/users/:id', async (req, res) => {
         });
     }
 })
+
+const startServer = async () => {
+    try {
+        await initDBConnection();
+        app.listen(port, () => {
+            console.log(`Server running on port ${port}`);
+        });
+    } catch (error) {
+        console.error('Error starting server:', error);
+    }
+};
 
 startServer();
 
