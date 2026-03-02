@@ -15,7 +15,7 @@
 
 .message.success
 {
-    background-color: #75da79;
+    background-color: #96ee99;
     color: white;
     display: block;
 }
@@ -99,7 +99,7 @@ textarea {
 
 /* ปุ่ม */
 .button {
-    background-color: #4CAF50;
+    background-color: #2fa033;
     color: white;
     border: none;
     padding: 10px 25px;
@@ -110,5 +110,5 @@ textarea {
 
 /* hover effect */
 .button:hover {
-    background-color: #45a049;
+    background-color: #1d5720;
 }
