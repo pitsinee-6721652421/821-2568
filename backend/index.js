@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const cors = require('cors'); 
-
 const app = express();
 const port = 8000;
 
@@ -29,20 +28,60 @@ app.get('/users', async (req, res) => {
     res.json(results[0]);
 });
 
+//validateData 10/3/69
+const validateData = (userData) => {
+    let errors = [];
+    if (!userData.firstname) {
+        errors.push('กรุณากรอกชื่อ');
+    }
+    if (!userData.lastname) {
+        errors.push('กรุณากรอกนามสกุล');
+    }
+    if (!userData.age) {
+        errors.push('กรุณากรอกอายุ');
+    }
+    if (!userData.gender) {
+        errors.push('กรุณาเลือกเพศ');
+    }
+    if (!userData.interests) {
+        errors.push('กรุณาเลือกความสนใจอย่างน้อย 1 อย่าง');
+    }
+    if (!userData.description) {
+        errors.push('กรุณากรอกคำอธิบายเกี่ยวกับตัวคุณ');
+    }
+    return errors;
+}
+
 //path = POST /users สำหรับเพิ่ม user ใหม่
 app.post('/users', async (req, res) => {
     try {     //ประมวลผล
         let user = req.body;
+//  เพิ่ม10/3
+        const errors = validateData(user);
+        if (errors.length >0){
+            throw{
+                message: 'กรอกข้อมูลไม่ครบถ้วน',
+                errors: errors
+            }
+        }
+
         const results = await conn.query('INSERT INTO users SET ?', user)
         res.json({
             message: 'User created successfully',
             data: results[0]
         })
     } catch (error) {
+//  เพิ่ม10/3
+        const errorMessage = error.message || 'Error creating user';
+        const errors = error.errors || [];
+
         console.error('Error creating user:', error);
         res.status(500).json({
-            message: 'Error creating user',
-            error: error.message
+           // message: 'Error creating user',
+            //error: error.message
+    //  เพิ่ม10/3
+            message: errorMessage,
+            errors: errors
         });
     }
 });
@@ -133,7 +172,7 @@ const startServer = async () => {
 
 startServer();
 
-//Get ดึงข้อมูลม ,ดู
+//Get ดึงข้อมูล ,ดู
 //Post เพิ่มข้อมูล
 //PUT  แก้ข้อมูลเดิม
 //DELETE ลบข้อมูล
